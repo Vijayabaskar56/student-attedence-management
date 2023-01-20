@@ -1,6 +1,6 @@
 <?php
-    session_start();
     include './includes/dbcon.php';
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -41,13 +41,12 @@
         </div>
     </form>
     </div>
-
     <?php
 
     if(isset($_POST['login'])) {
         $userType = $_POST['userType'];
         $userName = $_POST['userName'];
-        $password = $_POST['$userPass'];
+        $password = $_POST['userPass'];
         
 
         if($userType == "" || $userName == "" || $password == "") {
