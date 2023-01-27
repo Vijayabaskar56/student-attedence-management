@@ -2,7 +2,7 @@
     $host = "localhost";
     $user = "root";
     $password = "";
-    $database = "attendance";
+    $database = "attendancesystem";
     $port = "3307";
 
 

@@ -1,8 +1,6 @@
 <?php
 include '../includes/dbcon.php';
 include '../includes/session.php';
-
-
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +14,7 @@ include '../includes/session.php';
 <body>
     <div class="wrapper">
         
+    
     </div>
 </body>
 </html>

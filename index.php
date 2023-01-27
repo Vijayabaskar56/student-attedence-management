@@ -23,7 +23,7 @@
         <div class="form-grp">
             <select name="userType" class="form-control1">
                 <option value="">--Select User Role--</option>
-                <option value="HOD">HOD</option>
+                <option value="Admin">Admin</option>
                 <option value="Teachers">Teachers</option>
                 <option value="Student">Student</option>
             </select>
@@ -41,6 +41,7 @@
         </div>
     </form>
     </div>
+    
     <?php
 
     if(isset($_POST['login'])) {
@@ -52,19 +53,19 @@
         if($userType == "" || $userName == "" || $password == "") {
             echo "<div class='alert alert-msg' role='alert'>Please fill all fields</div>";
         }else {
-            $password = md5($password);
-            if($userType == "HOD") {
-                $query = "SELECT * FROM tblHOD WHERE emailAddress = '$userName' AND password = '$password'";
+            $passsword = md5($password);
+            if($userType == "Admin") {
+                $query = "SELECT * FROM tbladmin WHERE emailAddress = '$userName' AND password = '$passsword'";
     
                 $rs = $conn->query($query);
                 $num = $rs->num_rows;
                 $rows = $rs->fetch_assoc();
     
                 if($num > 0) {
-                    $_SESSION['userId'] = $rows['Id'];
+                    $_SESSION['userID'] = $rows['Id'];
                     $_SESSION['firstName'] = $rows['firstName'];
-                    $_SESSION['$secondName'] = $rows['$secondName'];
-                    $_SESSION['$emailAddress'] = $rows['$emailAddress'];
+                    $_SESSION['$lastName'] = $rows['lastName'];
+                    $_SESSION['$emailAddress'] = $rows['emailAddress'];
     
                     header("Location: ./Admin/index.php");
                     exit();
@@ -74,16 +75,16 @@
                 }
             }
             else if($userType == "Teachers") {
-                    $query = "SELECT * FROM tblTeachers WHERE emailAddress = '$userName' AND password = '$password'";
-        
+                    $query = "SELECT * FROM tblClassteacher WHERE emailAddress = '$userName' AND password = '$passsword'";
+            
                     $rs = $conn->query($query);
                     $num = $rs->num_rows;
                     $rows = $rs->fetch_assoc();
-        
+                    echo $rows;
                     if($num > 0) {
                         $_SESSION['$userID'] = $rows['Id'];
                         $_SESSION['$firstName'] = $rows['firstName'];
-                        $_SESSION['$secondName'] = $rows['secondName'];
+                        $_SESSION['$lastName'] = $rows['lastName'];
                         $_SESSION['$emailAddress'] = $rows['emailAddress'];
                         $_SESSION['$classId'] = $rows['classId'];
         
@@ -96,11 +97,12 @@
                         </div>";
                     }
                 }
-                elseif($userType == "Student") {
-                    $query = "SELECT * FROM tblStudent WHERE emailAddress = '$userName' AND password = '$password'";
+            elseif($userType == "Student") {
+                    $query = "SELECT * FROM tblStudents WHERE emailAddress = '$userName' AND password = '$passsword'";
 
                     $rs = $conn->query($query);
                     $num = $rs->num_rows;
+                    echo $num;
                     $rows = $rs->fetch_assoc();
 
                     if($num > 0) {
