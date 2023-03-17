@@ -67,7 +67,7 @@
                     $_SESSION['$lastName'] = $rows['lastName'];
                     $_SESSION['$emailAddress'] = $rows['emailAddress'];
     
-                    header("Location: ./Admin/index.php");
+                    header("Location: Admin/index.php");
                     exit();
                 }
                 else {
