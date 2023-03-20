@@ -233,7 +233,7 @@
                 </li>
                 <li>
                     <div class="icon-link">
-                    <a href="#">
+                    <a href="http://localhost/project/Admin/createClassTeacher.php">
                         <i class='bx bx-book-add'></i>
                         <span class="link_name">CREATE CLASS TEACHER</span>
                     </a>
@@ -241,7 +241,7 @@
                 </li>
                 <li>
                     <div class="icon-link">
-                    <a href="#">
+                    <a href="http://localhost/project/Admin/createStudent.php">
                         <i class='bx bx-brain'></i>
                         <span class="link_name">CREATE STUDENTS</span>
                     </a>
@@ -249,7 +249,7 @@
                 </li>
                 <li>
                     <div class="icon-link">
-                    <a href="#">
+                    <a href="http://localhost/project/Admin/createTerm.php">
                         <i class='bx bx-book-open'></i>
                         <span class="link_name">CREATE BATCH & SEM</span>
                     </a>

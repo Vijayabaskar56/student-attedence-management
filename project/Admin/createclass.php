@@ -4,14 +4,13 @@
     // include '../includes/session.php';
 
     // -----------------------Save------------------------------------------------------------------- 
-
     if (isset($_POST['$className'])) {
 
         $className = $_POST['$className'];
 
         $query=mysqli_query($conn,"select * from tblclass where className = '$className'");
         
-        $ret =mysqli_fetch_array($query);
+        $row =mysqli_fetch_array($query);
 
         if ($ret > 0) {
             $statusMsg = "<div class='alert' style='margin-right:700px;'>This CLass is Already Exists!</div>";
@@ -138,7 +137,7 @@
             <div class="card-body">
                 <form action="" method="post">
                     <label for="" class="form-control-label">Class Name</label>
-                    <input type="text"  name="className" id="exampleInputFirstName" class="form0control" placeholder="Class Name" value="<?php echo $row['className']; ?>">
+                    <input type="text"  name="className" value="<?php echo $row['className']; ?>" id="exampleInputFirstName" class="formcontrol" placeholder="Class Name" > 
                     <?php
                     if (isset($Id))
                     {
@@ -154,6 +153,10 @@
                     ?>
                 </form>
             </div>
+            <?php
+?>
+            <?php echo $row['className'];?>
+            
             <!-- input class -->
             <div class="card-input">
                 <div class="card">
