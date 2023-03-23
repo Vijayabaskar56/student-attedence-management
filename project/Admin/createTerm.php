@@ -11,7 +11,7 @@ if(isset($_POST['save'])){
     $sessionName=$_POST['sessionName'];
     $termId=$_POST['termId'];
     $dateCreated = date("Y-m-d");
-   
+
     $query=mysqli_query($conn,"select * from tblsessionterm where sessionName ='$sessionName' and termId = '$termId'");
     $ret=mysqli_fetch_array($query);
 
@@ -29,7 +29,7 @@ if(isset($_POST['save'])){
     }
     else
     {
-         $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>An error Occurred!</div>";
+        $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>An error Occurred!</div>";
     }
   }
 }
@@ -43,7 +43,7 @@ if(isset($_POST['save'])){
 
 //--------------------EDIT------------------------------------------------------------
 
- if (isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "edit")
+if (isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "edit")
 	{
         $Id= $_GET['Id'];
 
@@ -54,7 +54,7 @@ if(isset($_POST['save'])){
 
         if(isset($_POST['update'])){
     
-             $sessionName=$_POST['sessionName'];
+            $sessionName=$_POST['sessionName'];
     $termId=$_POST['termId'];
     $dateCreated = date("Y-m-d");
         
@@ -91,7 +91,7 @@ if(isset($_POST['save'])){
         else{
 
             $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>An error Occurred!</div>"; 
-         }
+        }
       
   }
 
@@ -139,7 +139,7 @@ if(isset($_POST['save'])){
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="img/logo/attnlg.jpg" rel="icon">
-<?php include 'includes/title.php';?>
+  <?php include 'includes/title.php';?>
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="css/ruang-admin.min.css" rel="stylesheet">

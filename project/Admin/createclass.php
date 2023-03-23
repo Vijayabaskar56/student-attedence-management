@@ -4,21 +4,21 @@
     // include '../includes/session.php';
 
     // -----------------------Save------------------------------------------------------------------- 
-    if (isset($_POST['$className'])) {
+    if (isset($_POST['save'])) {
 
-        $className = $_POST['$className'];
+        $className = $_POST['className'];
 
-        $query=mysqli_query($conn,"select * from tblclass where className = '$className'");
+        $query=mysqli_query($conn,"SELECT * from tblclass where className = '$className'");
         
         $row =mysqli_fetch_array($query);
 
-        if ($ret > 0) {
+        if ($row > 0) {
             $statusMsg = "<div class='alert' style='margin-right:700px;'>This CLass is Already Exists!</div>";
         }
         else{
-            $query=mysqli_query($conn,"insert into tblclass(className) value('$className')");
+            $query=mysqli_query($conn,"INSERT into tblclass(className) value('$className')");
 
-            if ($query) {
+            if ($query == TRUE) {
                 $statusMsg = "<div class='alert'  style='margin-right:700px;'>Created Successfully!</div>";
             }
             else {
@@ -31,15 +31,15 @@
     if (isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "edit") {
     {
         $Id=$_GET['Id'];
-        $query= mysqli_query($conn,"select * from tblclass where Id = '$Id'");
+        $query= mysqli_query($conn,"SELECT * from tblclass where Id = '$Id'");
         $row = mysqli_fetch_array($query);
 
         // -------------UPDATE--------------
         if(isset($_POST['update'])){
             $className=$_POST['className'];
-            $query=mysqli_query($conn,"update tblclass set className='$className' where Id='$Id'");
+            $query=mysqli_query($conn,"UPDATE tblclass set className='$className' where Id='$Id'");
 
-            if ($query) {
+            if ($query == TRUE) {
                 echo "<script type = \"text/javascript\">
                 window.location = (\"createClass.php\")
                 </script>";
@@ -56,7 +56,7 @@
     if(isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "delete")
     {
         $Id = $_GET['Id'];
-        $query = mysqli_query($conn,"DELECT FROM tblclass WHERE Id='$Id'");
+        $query = mysqli_query($conn,"DELETE FROM tblclass WHERE Id='$Id'");
         
         if($query == TRUE) {
             echo "<script type = \"text/javascript\">
@@ -137,7 +137,7 @@
             <div class="card-body">
                 <form action="" method="post">
                     <label for="" class="form-control-label">Class Name</label>
-                    <input type="text"  name="className" value="<?php echo $row['className']; ?>" id="exampleInputFirstName" class="formcontrol" placeholder="Class Name" > 
+                    <input type="text" name="className" value="<?php echo isset($row['className']) ? $row['className'] : ''; ?>" id="exampleInputFirstName" class="formcontrol" placeholder="Class Name" >
                     <?php
                     if (isset($Id))
                     {
@@ -155,7 +155,6 @@
             </div>
             <?php
 ?>
-            <?php echo $row['className'];?>
             
             <!-- input class -->
             <div class="card-input">
