@@ -1,5 +1,4 @@
 <?php
-
     $query = "Select * from tblAdmin where Id = ".$_SESSION['userId']."";
     $rs = $conn->query($query);
     $num = $rs->num_rows;

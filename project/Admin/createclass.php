@@ -153,8 +153,6 @@
                     ?>
                 </form>
             </div>
-            <?php
-?>
             
             <!-- input class -->
             <div class="card-input">

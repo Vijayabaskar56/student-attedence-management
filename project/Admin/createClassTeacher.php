@@ -1,7 +1,6 @@
 <?php
     session_start();
     include '../includes/dbcon.php';
-
 // ----------------------------SAVE-------------------
 
 if(isset($_POST['save'])){
@@ -91,16 +90,16 @@ if(isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "delete")
             </div>
             <div class="card-body">
                 <form action="" method="post">
-                <div class="input-container">
-                    <label class="form-control-label">FirstName</label>
-                    <input type="text"  name="firstName" value="" id="exampleInputFirstName" class="formcontrol"><br>
-                    <label class="form-control-label">LastName</label>
-                    <input type="text"  name="lastName" value="" id="exampleInputFirstName" class="formcontrol"><br>
-                    <label class="form-control-label">Email Address</label>
-                    <input type="text"  name="emailAddress" value="" id="exampleInputFirstName" class="formcontrol"><br> 
-                    <label class="form-control-label">Phone No</label>
-                    <input type="text"  name="phoneNo" value="" id="exampleInputFirstName" class="formcontrol"><br>
-                    <label class="form-control-label">Select Class</label>
+                    <div class="input-container">
+                        <label class="form-control-label">FirstName</label>
+                        <input type="text"  name="firstName" value="" id="exampleInputFirstName" class="formcontrol"><br>
+                        <label class="form-control-label">LastName</label>
+                        <input type="text"  name="lastName" value="" id="exampleInputFirstName" class="formcontrol"><br>
+                        <label class="form-control-label">Email Address</label>
+                        <input type="text"  name="emailAddress" value="" id="exampleInputFirstName" class="formcontrol"><br> 
+                        <label class="form-control-label">Phone No</label>
+                        <input type="text"  name="phoneNo" value="" id="exampleInputFirstName" class="formcontrol"><br>
+                        <label class="form-control-label">Select Class</label>
                     <?php 
                         $qry = "SELECT * FROM tblclass ORDER BY className ASC";
                         $result = $conn->query($qry);
@@ -154,10 +153,10 @@ if(isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "delete")
 
                         <tbody>
                             <?php
-                                $query = "Select tblclassteacher.Id,tblclass.className,tblclassteacher.firstName,tblclassteacher.lastName,tblclassteacher.emailAddress,tblclassteacher.phoneNo,tblclassteacher.dateCreated FROM tblclassteacher INNER JOIN tblclass";
+                                $query = "SELECT DISTINCT tblclassteacher.Id, tblclass.className, tblclassteacher.firstName, tblclassteacher.lastName, tblclassteacher.emailAddress, tblclassteacher.phoneNo, tblclassteacher.dateCreated FROM tblclassteacher INNER JOIN tblclass ON tblclassteacher.classId = tblclass.Id";
                                 $rs = $conn->query($query);
                                 $num = $rs->num_rows;
-                                $sn=0;
+                                $sn=0;  
                                 $status="";
                                 if($num > 0)
                                 {
@@ -173,7 +172,7 @@ if(isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "delete")
                                             <td>".$rows['phoneNo']."</td>
                                             <td>".$rows['className']."</td>
                                             <td>".$rows['dateCreated']."</td>
-                                            <td><a href='?action=delete&Id=".$rows['Id']."'><i class='bx bx-trash-alt'></i></a></td>
+                                            <td><a href='?action=delete&Id=".$rows['Id']."'><i class='bx bx-trash-alt'></i>Delete</a></td>
                                         </tr>";
                                     }
                                 }
