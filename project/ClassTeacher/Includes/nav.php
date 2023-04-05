@@ -1,5 +1,5 @@
 <?php
-    $query = "Select * from tblAdmin where Id = " .$_SESSION['$userID']."";
+    $query = "SELECT * from tblclassteacher where Id = ".$_SESSION['$userID']."" ;
     $rs = $conn->query($query);
     $num = $rs->num_rows;
     $rows = $rs->fetch_assoc();
@@ -225,33 +225,33 @@
                 </li>
                 <li>
                     <div class="icon-link">
-                    <a href="http://localhost/project/Admin/createclass.php">
+                    <a href="http://localhost/project/ClassTeacher/viewStudents.php">
                         <i class='bx bx-chalkboard'></i>
-                        <span class="link_name">CREATE CLASS</span>
+                        <span class="link_name">View Students</span>
                     </a>
                     </div>
                 </li>
                 <li>
                     <div class="icon-link">
-                    <a href="http://localhost/project/Admin/createClassTeacher.php">
+                    <a href="http://localhost/project/ClassTeacher/takeAttendance.php">
                         <i class='bx bx-book-add'></i>
-                        <span class="link_name">CREATE CLASS TEACHER</span>
+                        <span class="link_name">Take Attendance</span>
                     </a>
                     </div>
                 </li>
                 <li>
                     <div class="icon-link">
-                    <a href="http://localhost/project/Admin/createStudent.php">
+                    <a href="http://localhost/project/ClassTeacher/viewClassAttendance.php">
                         <i class='bx bx-brain'></i>
-                        <span class="link_name">CREATE STUDENTS</span>
+                        <span class="link_name">View Class Attendance</span>
                     </a>
                     </div>
                 </li>
                 <li>
                     <div class="icon-link">
-                    <a href="http://localhost/project/Admin/createTerm.php">
+                    <a href="http://localhost/project/ClassTeacher/viewStudentsAttendance.php">
                         <i class='bx bx-book-open'></i>
-                        <span class="link_name">CREATE BATCH & SEM</span>
+                        <span class="link_name">View Student Attendance</span>
                     </a>
                     </div>
                 </li>
@@ -263,7 +263,7 @@
                         <div class="name-job">
                             <?php echo "<div class='nav-user-name'>".$fullName."</div>" ?>
                         </div>
-                        <a href="logout.php" class="log-out"><i class="bx bx-log-out"></i></a>
+                        <a href="./logout.php" class="log-out"><i class="bx bx-log-out"></i></a>
                     </div>
                 </li>
             </ul>
