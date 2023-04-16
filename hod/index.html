@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAM</title>
+    <link rel ="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <div>
+        <h6>STUDENT ATTENDANCE SYSTEM</h6>
+    </div>
+    <div>
+        <h3>Login Panel</h3>
+    </div>
+    <form class="form" method="POST" action="">
+        <div class="form-grp">
+            <select name="userType" class="form-control1">
+                <option value="">--Select User Role--</option>
+                <option value="Admin">Admin</option>
+                <option value="Teachers">Teachers</option>
+                <option value="Student">Student</option>
+            </select>
+            <input type="text" class="form-control2" required name="userName" id="exampleInputEmail" placeholder="Enter Email Address">
+            <input type="text" class="form-control3" required name="userPass" id="exampleInputPass" placeholder="Enter the Password">
+            
+            <!-- <div class="form-group">
+                    <div class="custom-control custom-checkbox small" style="line-height: 1.5rem;">
+                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <label class="custom-control-label" for="customCheck">Remember Me</label>
+            </div>  -->
+            <div class="form-grp-btn">
+                <input  class="btn btn-success btn-block" type="submit" value = "Login" name="login" />
+            </div>
+        </div>
+    </form>
+    </div>
+</body>
+</html>
