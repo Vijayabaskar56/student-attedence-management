@@ -2,7 +2,7 @@
 it's my final year collage project.
 Title: Student Attendance Management System
 
-Developed by: Vijayabasakar
+Developed by: Vijayabasakar & Kesavan
 
 Platform: Web (HTML, CSS, JavaScript, PHP, MySQL)
 
